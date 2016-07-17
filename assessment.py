@@ -113,3 +113,32 @@ class Exam(object):
 def take_test(exam, student):
     """Given an exam and a student, administers exam and records student's
     score."""
+
+    student.score = exam.administer()
+
+
+def example():
+    """Creates an exam, adds a few questions to it, creates a student,
+    administers the test for that student."""
+
+    exam = Exam("exam")
+
+    exam.add_question("Who received the first IBM PC delivered in New York "
+                      "City?", "Edie Windsor")
+
+    exam.add_question("Who headed the team that wrote the software for the "
+                      "Apollo Guidance Computer?", "Margaret Hamilton")
+
+    student = Student("Nicey", "Goodcoder", "123 Computer St")
+
+    student.score = exam.administer()
+
+    if student.score == len(exam.questions):
+        print "Great job! Your score is {}.".format(student.score)
+    else:
+        print "Your score is {}.".format(student.score)
+
+
+
+
+
