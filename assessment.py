@@ -54,5 +54,62 @@ Part 1: Discussion
 """
 
 
-# Parts 2 through 5:
-# Create your classes and class methods
+# Part 2: Classes and Init Methods
+# Part 3: Methods
+
+class Student(object):
+
+    def __init__(self, first_name, last_name, address):
+        """Initializes new student."""
+
+        self.first_name = first_name
+        self.last_name = last_name
+        self.address = address
+
+
+class Question(object):
+
+    def __init__(self, question, correct_answer):
+        """Initializes new question."""
+
+        self.question = question
+        self.correct_answer = correct_answer
+
+    def ask_and_evaluate(self):
+        """Asks user the question and compares their response to the correct
+        answer; returns a boolean."""
+
+        answer = raw_input("{} > ".format(self.question))
+        return answer.lower() == self.correct_answer.lower()
+        # User's answer doesn't have to match the capitalization of correct
+        # answer in order to be marked correct.
+
+
+class Exam(object):
+
+    def __init__(self, name):
+        """Initializes new exam with blank list of questions."""
+
+        self.name = name
+        self.questions = []
+
+    def add_question(self, question, correct_answer):
+        """Adds new question to the list of questions."""
+
+        self.questions.append(Question(question, correct_answer))
+
+    def administer(self):
+        """Loops over exam's questions, returns score."""
+
+        score = 0
+        for question in self.questions:
+            if question.ask_and_evaluate():  # if that returns True then
+                score += 1
+        return score
+
+
+# Part 4: Create an actual exam!
+
+def take_test(exam, student):
+    """Given an exam and a student, administers exam and records student's
+    score."""
