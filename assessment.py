@@ -139,6 +139,14 @@ def example():
         print "Your score is {}.".format(student.score)
 
 
+# Part 5: Inheritance
 
+class Quiz(Exam):
+    """It's like an exam, only pass/fail."""
 
-
+    def administer(self):
+        score = super(Quiz, self).administer()
+        return score / float(len(self.questions)) >= 0.5
+        # If you answered at least half of the questions correctly, you pass the
+        # quiz. Length (i.e., number) of questions converted to float due to
+        # Python 2's counterintuitive implementation of the '/' operator.
