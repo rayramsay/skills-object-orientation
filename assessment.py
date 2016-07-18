@@ -11,13 +11,12 @@ Part 1: Discussion
     * Abstraction:
         Details can be "hidden" from the user. For example, when we were using
         that graphics program, we knew which methods we could use with various
-        shapes, like .setBackgroundColor(), but we didn't need to know how those
-        methods worked under the hood.
+        shapes, like .setBackgroundColor(), but we didn't--and didn't need to--
+        know how those methods worked under the hood.
 
     * Polymorphism:
         Interchangeability of components. Classes that call the same methods
-        should pass the same number of arguments, so that you can loop over
-        heterogeneous types.
+        should pass the same number of arguments. 
 
 2. What is a class?
 
@@ -147,6 +146,6 @@ class Quiz(Exam):
     def administer(self):
         score = super(Quiz, self).administer()
         return score / float(len(self.questions)) >= 0.5
-        # If you answered at least half of the questions correctly, you pass the
-        # quiz. Length (i.e., number) of questions converted to float due to
+        # If you answer at least half of the questions correctly, you pass the
+        # quiz. Length (i.e., number) of questions converted to a float due to
         # Python 2's counterintuitive implementation of the '/' operator.
